@@ -94,7 +94,7 @@ for num in num_list:
 
 ## 8. 링크
 
-````
+```
 
 인라인 링크는 아래처럼
 [인라인 링크](https://velog.io/)
@@ -168,3 +168,4 @@ mac: Command + Control + 스페이스 바
 ```
 
 ```
+````
