@@ -155,7 +155,7 @@ url 링크는 아래처럼
 
 ## 13. 이모지
 
-window10: 윈도우 키 + 마침표(.)
+window10: 윈도우 키 + 마침표(.) <br/>
 mac: Command + Control + 스페이스 바
 
 ## 14. 글자 색상
@@ -165,9 +165,5 @@ mac: Command + Control + 스페이스 바
 <span style="color:red">red</span>
 <span style="color:#d3d3d3">#d3d3d3</span>
 <span style="color:rgb(245, 235, 13)">rgb(245, 235, 13)</span>
-
-```
-
-```
 
 ```
