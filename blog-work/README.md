@@ -91,6 +91,7 @@ num_list = ['one', 'two', 'three']
 for num in num_list:
   print(num)
 ```　
+````
 
 ## 8. 링크
 
@@ -168,4 +169,5 @@ mac: Command + Control + 스페이스 바
 ```
 
 ```
-````
+
+```
