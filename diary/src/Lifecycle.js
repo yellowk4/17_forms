@@ -1,38 +1,26 @@
 import React, { useEffect, useState } from 'react';
 
-const Lifecycle = () => {
-  const [count, setCount] = useState(0);
-  const [text, setText] = useState('');
+const UnmountTest = () => {
+  // return <div>언마운트 테스트</div>;
 
   useEffect(() => {
     console.log('마운트');
+    return () => {
+      console.log('언마운트');
+    };
   }, []);
 
-  useEffect(() => {
-    console.log('Update');
-  });
+  return <div>언마운트 테스트</div>;
+};
 
-  useEffect(() => {
-    console.log(`count Update : ${count}`);
-    if (count > 5) {
-      alert('5보다 큽니다. 1로 초기화 합니다.');
-      setCount(1);
-    }
-  }, [count]);
-
-  useEffect(() => {
-    console.log(`text Update : ${text}`);
-  }, [text]);
+const Lifecycle = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const toggle = () => setIsVisible(!isVisible);
 
   return (
     <div style={{ padding: 20 }}>
-      <div>
-        {count}
-        <button onClick={() => setCount(count + 1)}>증가</button>
-      </div>
-      <div>
-        <input value={text} onChange={(e) => setText(e.target.value)} />
-      </div>
+      <button onClick={toggle}>보이기/가리기</button>
+      {isVisible && <UnmountTest />}
     </div>
   );
 };
