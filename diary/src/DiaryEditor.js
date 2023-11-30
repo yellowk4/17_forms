@@ -1,8 +1,8 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext } from 'react';
+import { DiaryDispatchContext } from './App';
 
-const DiaryEditor = ({ onCreate }) => {
-  // const [author, setAuthor] = useState('');
-  // const [content, setContent] = useState('');
+const DiaryEditor = () => {
+  const { onCreate } = useContext(DiaryDispatchContext);
 
   // 하나돌 합침
   const [state, setState] = useState({
@@ -24,15 +24,11 @@ const DiaryEditor = ({ onCreate }) => {
 
   const handleSubmit = () => {
     if (state.author.length < 1) {
-      // alert('작성자는 최소 1글자 이상 입력해주세요.');
-      // focus
       authorInput.current.focus();
       return;
     }
 
     if (state.content.length < 5) {
-      // alert('내용을 5자 이상 입력해주세요.');
-      // focus
       contentInput.current.focus();
       return;
     }
@@ -50,38 +46,13 @@ const DiaryEditor = ({ onCreate }) => {
     <div className="DiaryEditor">
       <h2>오늘의 일기</h2>
       <div>
-        <input
-          ref={authorInput}
-          name="author"
-          value={state.author}
-          // onChange={(e) => {
-          //   // setState({
-          //   //   author: e.target.value,
-          //   //   content: state.content,
-          //   // });
-          //   setState({
-          //     ...state, // 기존 state를 풀어놓고
-          //     author: e.target.value,
-          //   });
-          // }}
-          onChange={handleChangeState}
-        />
+        <input ref={authorInput} name="author" value={state.author} onChange={handleChangeState} />
       </div>
       <div>
         <textarea
           ref={contentInput}
           name="content"
           value={state.content}
-          // onChange={(e) => {
-          //   // setState({
-          //   //   author: state.author,
-          //   //   content: e.target.value,
-          //   // });
-          //   setState({
-          //     ...state,
-          //     content: e.target.value,
-          //   });
-          // }}
           onChange={handleChangeState}
         ></textarea>
       </div>
@@ -102,4 +73,4 @@ const DiaryEditor = ({ onCreate }) => {
   );
 };
 
-export default DiaryEditor;
+export default React.memo(DiaryEditor);
