@@ -39,7 +39,7 @@ const getStringDate = (date) => {
   return date.toISOString().slice(0, 10);
 };
 
-const DiaryEditor = (isEdit, originData) => {
+const DiaryEditor = ({ isEdit, originData }) => {
   const [emotion, setEmotion] = useState(3); // 기본값은 3
   const [date, setDate] = useState(getStringDate(new Date()));
   const navigator = useNavigate();
@@ -63,8 +63,6 @@ const DiaryEditor = (isEdit, originData) => {
         console.log('AA');
         onCreate(date, content, emotion); // 일기 내용을 저장
       } else {
-        console.log('BB');
-
         onEdit(originData.id, date, content, emotion); // 일기 내용을 수정
       }
     }
@@ -73,12 +71,12 @@ const DiaryEditor = (isEdit, originData) => {
 
   useEffect(() => {
     if (isEdit) {
-      setEmotion(originData.emotion);
       // setDate(getStringDate(new Date(parseInt(originData.date))));
       const timestamp = parseInt(originData.date);
       if (!isNaN(timestamp)) {
         setDate(getStringDate(new Date(timestamp)));
       }
+      setEmotion(originData.emotion);
       setContent(originData.content);
     }
   }, [isEdit, originData]);
