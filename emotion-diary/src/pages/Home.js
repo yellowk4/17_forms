@@ -14,7 +14,14 @@ const Home = () => {
   useEffect(() => {
     if (diaryList.length >= 1) {
       const firstDay = new Date(curDate.getFullYear(), curDate.getMonth(), 1).getTime();
-      const lastDay = new Date(curDate.getFullYear(), curDate.getMonth() + 1, 0).getTime();
+      const lastDay = new Date(
+        curDate.getFullYear(),
+        curDate.getMonth() + 1,
+        0, // 마지막 날짜는 시분초를 함께 넣어줘야 함
+        23,
+        59,
+        59
+      ).getTime();
       setData(
         diaryList.filter((it) => {
           const itemDate = new Date(it.date).getTime();
@@ -25,7 +32,7 @@ const Home = () => {
   }, [diaryList, curDate]);
 
   useEffect(() => {
-    console.log('data', data);
+    // console.log('data', data);
   }, [data]);
 
   const changeMonth = (amount) => {

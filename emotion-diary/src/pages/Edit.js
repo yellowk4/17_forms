@@ -10,7 +10,6 @@ const Edit = () => {
   // console.log('id', id);
 
   const diaryList = useContext(DiaryStateContext);
-  // console.log('diartList', diartList);
 
   useEffect(() => {
     if (diaryList.length >= 1) {
@@ -20,6 +19,7 @@ const Edit = () => {
       if (targetDiary) {
         setOriginData(targetDiary);
       } else {
+        alert('없는 일기입니다.');
         navigate('/', { replace: true });
       }
     }
