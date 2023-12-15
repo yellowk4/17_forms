@@ -10,8 +10,8 @@ const sortOptionList = [
 
 const filterOptionList = [
   { value: 'all', name: '전체' },
-  { value: 'good', name: '좋은 감정만' },
-  { value: 'bad', name: '안 좋은 감정만' },
+  { value: 'good', name: '좋음' },
+  { value: 'bad', name: '나쁨' },
 ];
 
 // 최적화
