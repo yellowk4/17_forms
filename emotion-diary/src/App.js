@@ -34,7 +34,8 @@ const reducer = (state, action) => {
       return state;
   }
 
-  localStorage.setItem('diary', JSON.stringify(newState));
+  localStorage.setItem('diary', JSON.stringify(newState)); //  JSON.stringify는 자바스크립트 값을 JSON 문자열로 변환하는 메서드입니다. JSON.parse는 JSON 문자열을 자바스크립트 값으로 변환하는 메서드입니다. JSON.parse사용시 주의사항 underfined/null 은 변환되지 않습니다.
+
   return newState;
 };
 
